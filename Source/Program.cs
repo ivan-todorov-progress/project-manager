@@ -1,11 +1,23 @@
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using ElectronNET.API;
+using Telerik.Project.Management;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.WebHost.UseElectron(args);
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews()
+                .AddJsonOptions(jsonOptions =>
+{
+    var namingPolicy = JsonNamingPolicy.CamelCase;
+    var enumConverter = new JsonStringEnumConverter(namingPolicy);
+
+    jsonOptions.JsonSerializerOptions.PropertyNamingPolicy = namingPolicy;
+    jsonOptions.JsonSerializerOptions.Converters.Add(enumConverter);
+});
+builder.Services.AddDataServices();
 
 var app = builder.Build();
 
