@@ -6,7 +6,8 @@ export class NavMenuItem {
 }
 
 export const menuItems = [
-  new NavMenuItem('/', 'Home')
+  new NavMenuItem('/', 'Home'),
+  new NavMenuItem('/project-list', 'Projects')
 ];
 
 @Component({

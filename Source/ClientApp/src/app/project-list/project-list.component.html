@@ -1,0 +1,26 @@
+<h1>Projects</h1>
+<p *ngIf="!projectInfos">
+  <em>Loading...</em>
+</p>
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="projectInfos">
+  <thead>
+    <tr>
+      <th width="50">Image</th>
+      <th>Title</th>
+      <th width="50">
+        <a class="nav-link text-dark" routerLink="/project-new">New</a>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let projectInfo of projectInfos">
+      <td width="50">
+        <img style="width: 32px; height: 32px" src="{{ projectInfo.image }}" />
+      </td>
+      <td>{{ projectInfo.title }}</td>
+      <td width="50">
+        <a class="nav-link text-dark" routerLink="/project-edit/{{ projectInfo.id }}">Edit</a>
+      </td>
+    </tr>
+  </tbody>
+</table>

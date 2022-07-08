@@ -1,0 +1,18 @@
+<h1>Project</h1>
+<p *ngIf="!projectInfo">
+  <em>Loading...</em>
+</p>
+<div *ngIf="projectInfo">
+  <div class="form-group" style="margin-bottom: 10px">
+    <label for="title">Title</label>
+    <input id="title" type="text" class="form-control" [(ngModel)]="projectInfo.title" />
+  </div>
+  <div class="form-group" style="margin-bottom: 10px">
+    <label for="description">Description</label>
+    <textarea id="description" class="form-control" rows="5" [(ngModel)]="projectInfo.description"></textarea>
+  </div>
+  <div class="form-group" style="margin-bottom: 10px">
+    <button type="button" class="btn btn-primary" style="margin-right: 10px" (click)="save()">Save</button>
+    <button type="button" class="btn btn-secondary" style="margin-right: 10px" (click)="cancel()">Cancel</button>
+  </div>
+</div>
