@@ -1,0 +1,16 @@
+<h1>Dashboard</h1>
+<p *ngIf="!taskGroups">
+  <em>Loading...</em>
+</p>
+<a class="nav-link text-dark" routerLink="/task-list/{{ projectId }}">Tasks</a>
+<div class="row" *ngIf="taskGroups">
+  <div class="col" *ngFor="let taskGroup of taskGroups">
+    <h5>{{ getStatusName(taskGroup.status) }}</h5>
+    <div class="card" style="margin-bottom: 20px" *ngFor="let taskInfo of taskGroup.tasks">
+      <div class="card-body">
+        <h5 class="card-title">{{ getTypeName(taskInfo.type) }}</h5>
+        <p class="card-text">{{ taskInfo.title }}</p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -11,6 +11,7 @@ import { ProjectListComponent } from './project-list/project-list.component';
 import { ProjectEditComponent } from './project-edit/project-edit.component';
 import { TaskListComponent } from './task-list/task-list.component';
 import { TaskEditComponent } from './task-edit/task-edit.component';
+import { TaskBoardComponent } from './task-board/task-board.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { TaskEditComponent } from './task-edit/task-edit.component';
     ProjectEditComponent,
     TaskListComponent,
     TaskEditComponent,
+    TaskBoardComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -35,6 +37,7 @@ import { TaskEditComponent } from './task-edit/task-edit.component';
       { path: 'task-list/:projectId', component: TaskListComponent, pathMatch: 'full' },
       { path: 'task-new/:projectId', component: TaskEditComponent, pathMatch: 'full' },
       { path: 'task-edit/:projectId/:taskId', component: TaskEditComponent, pathMatch: 'full' },
+      { path: 'task-board/:projectId', component: TaskBoardComponent, pathMatch: 'full' },
     ])
   ],
   providers: [],
