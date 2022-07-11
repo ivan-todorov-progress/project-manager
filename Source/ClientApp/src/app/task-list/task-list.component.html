@@ -1,0 +1,26 @@
+<h1>Tasks</h1>
+<p *ngIf="!taskInfos">
+  <em>Loading...</em>
+</p>
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="taskInfos">
+  <thead>
+    <tr>
+      <th width="50">Type</th>
+      <th width="150">Status</th>
+      <th>Title</th>
+      <th width="50">
+        <a class="nav-link text-dark" routerLink="/task-new/{{ projectId }}">New</a>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let taskInfo of taskInfos">
+      <td width="50">{{ getTypeName(taskInfo.type) }}</td>
+      <td width="150">{{ getStatusName(taskInfo.status) }}</td>
+      <td>{{ taskInfo.title }}</td>
+      <td width="50">
+        <a class="nav-link text-dark" routerLink="/task-edit/{{ projectId }}/{{ taskInfo.id }}">Edit</a>
+      </td>
+    </tr>
+  </tbody>
+</table>

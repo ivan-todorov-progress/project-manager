@@ -1,0 +1,54 @@
+<h1>Task</h1>
+<p *ngIf="!taskInfo">
+  <em>Loading...</em>
+</p>
+<div *ngIf="taskInfo">
+  <div class="row" style="margin-bottom: 10px">
+    <div class="col">
+      <label for="title">Title</label>
+      <input id="title" type="text" class="form-control" [(ngModel)]="taskInfo.title" />
+    </div>
+  </div>
+  <div class="row" style="margin-bottom: 10px">
+    <div class="col">
+      <label for="type">Type</label>
+      <select id="type" class="form-control" [(ngModel)]="taskInfo.type">
+        <option [value]="taskType.type" *ngFor="let taskType of taskTypes">{{ taskType.name }}</option>
+      </select>
+    </div>
+    <div class="col">
+      <label for="status">Status</label>
+      <select id="status" class="form-control" [(ngModel)]="taskInfo.status">
+        <option [value]="taskStatus.status" *ngFor="let taskStatus of taskStatuses">{{ taskStatus.name }}</option>
+      </select>
+    </div>
+    <div class="col">
+      <label for="priority">Priority</label>
+      <select id="priority" class="form-control" [(ngModel)]="taskInfo.priority">
+        <option [value]="taskPriority.priority" *ngFor="let taskPriority of taskPriorities">{{ taskPriority.name }}</option>
+      </select>
+    </div>
+  </div>
+  <div class="row" style="margin-bottom: 10px">
+    <div class="col">
+      <label for="assignee">Assignee</label>
+      <input id="assignee" type="text" class="form-control" [(ngModel)]="taskInfo.assignee" />
+    </div>
+    <div class="col">
+      <label for="estimate">Estimate</label>
+      <input id="estimate" type="text" class="form-control" [(ngModel)]="taskInfo.estimate" />
+    </div>
+  </div>
+  <div class="row" style="margin-bottom: 10px">
+    <div class="col">
+      <label for="description">Description</label>
+      <textarea id="description" class="form-control" rows="5" [(ngModel)]="taskInfo.description"></textarea>
+    </div>
+  </div>
+  <div class="row" style="margin-bottom: 10px">
+    <div class="col">
+      <button type="button" class="btn btn-primary" style="margin-right: 10px" (click)="save()">Save</button>
+      <button type="button" class="btn btn-secondary" style="margin-right: 10px" (click)="cancel()">Cancel</button>
+    </div>
+  </div>
+</div>
