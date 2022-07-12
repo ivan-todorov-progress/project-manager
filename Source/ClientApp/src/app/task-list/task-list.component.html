@@ -2,10 +2,11 @@
 <p *ngIf="!searchInfos">
   <em>Loading...</em>
 </p>
-<div class="form-group row">
-  <input type="text" class="form-control" style="margin-right: 10px"
-         placeholder="Enter search criteria" (keyup.enter)="search()" [(ngModel)]="searchFilter" />
-  <button type="button" class="btn btn-secondary" (click)="search()">Search</button>
+<div class="input-group">
+  <input type="text" class="form-control" placeholder="Enter a search criteria" (keyup.enter)="search()" [(ngModel)]="searchFilter" />
+  <span class="input-group-btn" style="margin-left: 10px">
+    <button type="button" class="btn btn-light" (click)="search()">Search</button>
+  </span>
 </div>
 <table class='table table-striped' aria-labelledby="tableLabel" *ngIf="searchInfos">
   <thead>

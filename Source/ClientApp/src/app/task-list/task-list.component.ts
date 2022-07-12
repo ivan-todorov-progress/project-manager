@@ -45,12 +45,18 @@ export class TaskListComponent implements OnInit, OnDestroy {
   }
 
   search() {
-    if (this.taskInfos) {
-      const searchFilter = this.searchFilter ?? '';
+    if (this.taskInfos && this.searchFilter) {
+      const searchFilter = this.searchFilter.toLowerCase();
 
-      this.searchInfos = this.taskInfos.filter(taskInfo =>
-        taskInfo.title?.includes(searchFilter) ||
-        taskInfo.description?.includes(searchFilter));
+      this.searchInfos = this.taskInfos.filter(taskInfo => {
+        const title = taskInfo.title?.toLowerCase();
+        const description = taskInfo.description?.toLowerCase();
+
+        return title?.includes(searchFilter) ||
+               description?.includes(searchFilter);
+      });
+    } else {
+      this.searchInfos = this.taskInfos;
     }
   }
 
