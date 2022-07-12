@@ -12,6 +12,7 @@ import { ProjectEditComponent } from './project-edit/project-edit.component';
 import { TaskListComponent } from './task-list/task-list.component';
 import { TaskEditComponent } from './task-edit/task-edit.component';
 import { TaskBoardComponent } from './task-board/task-board.component';
+import { TaskHistoryComponent } from './task-history/task-history.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { TaskBoardComponent } from './task-board/task-board.component';
     TaskListComponent,
     TaskEditComponent,
     TaskBoardComponent,
+    TaskHistoryComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -38,6 +40,7 @@ import { TaskBoardComponent } from './task-board/task-board.component';
       { path: 'task-new/:projectId', component: TaskEditComponent, pathMatch: 'full' },
       { path: 'task-edit/:projectId/:taskId', component: TaskEditComponent, pathMatch: 'full' },
       { path: 'task-board/:projectId', component: TaskBoardComponent, pathMatch: 'full' },
+      { path: 'task-history/:projectId/:taskId', component: TaskHistoryComponent, pathMatch: 'full' },
     ])
   ],
   providers: [],

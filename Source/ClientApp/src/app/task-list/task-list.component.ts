@@ -10,7 +10,9 @@ import { TaskService } from '../app.services';
 })
 export class TaskListComponent implements OnInit, OnDestroy {
   public projectId?: string;
+  public searchFilter?: string;
   public taskInfos?: TaskInfo[];
+  public searchInfos?: TaskInfo[];
 
   constructor(private activatedRoute: ActivatedRoute,
               private taskService: TaskService) {
@@ -28,14 +30,27 @@ export class TaskListComponent implements OnInit, OnDestroy {
       menuItems.push(menuItem);
 
       this.taskService.getTasks(this.projectId)
-          .subscribe(result => this.taskInfos = result,
-                     error => console.error(error));
+          .subscribe(result => {
+            this.taskInfos = result;
+            this.searchInfos = result;
+          },
+          error => console.error(error));
     }
   }
 
   ngOnDestroy(): void {
     if (this.projectId) {
       menuItems.pop();
+    }
+  }
+
+  search() {
+    if (this.taskInfos) {
+      const searchFilter = this.searchFilter ?? '';
+
+      this.searchInfos = this.taskInfos.filter(taskInfo =>
+        taskInfo.title?.includes(searchFilter) ||
+        taskInfo.description?.includes(searchFilter));
     }
   }
 

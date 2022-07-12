@@ -1,8 +1,13 @@
 <h1>Tasks</h1>
-<p *ngIf="!taskInfos">
+<p *ngIf="!searchInfos">
   <em>Loading...</em>
 </p>
-<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="taskInfos">
+<div class="form-group row">
+  <input type="text" class="form-control" style="margin-right: 10px"
+         placeholder="Enter search criteria" (keyup.enter)="search()" [(ngModel)]="searchFilter" />
+  <button type="button" class="btn btn-secondary" (click)="search()">Search</button>
+</div>
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="searchInfos">
   <thead>
     <tr>
       <th width="50">Type</th>
@@ -14,12 +19,15 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let taskInfo of taskInfos">
+    <tr *ngFor="let taskInfo of searchInfos">
       <td width="50">{{ getTypeName(taskInfo.type) }}</td>
       <td width="150">{{ getStatusName(taskInfo.status) }}</td>
       <td>{{ taskInfo.title }}</td>
       <td width="50">
         <a class="nav-link text-dark" routerLink="/task-edit/{{ projectId }}/{{ taskInfo.id }}">Edit</a>
+      </td>
+      <td width="50">
+        <a class="nav-link text-dark" routerLink="/task-history/{{ projectId }}/{{ taskInfo.id }}">History</a>
       </td>
     </tr>
   </tbody>

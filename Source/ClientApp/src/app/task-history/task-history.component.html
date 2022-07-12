@@ -1,0 +1,25 @@
+<h1>History</h1>
+<p *ngIf="!changeSets">
+  <em>Loading...</em>
+</p>
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="changeSets">
+  <thead>
+    <tr>
+      <th width="150">Time</th>
+      <th width="100">Name</th>
+      <th>Old</th>
+      <th>New</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let changeSet of changeSets">
+    <tr>
+      <td colspan="4">{{ changeSet.modified | date : 'short' }}</td>
+    </tr>
+    <tr *ngFor="let changeInfo of changeSet.changes">
+      <td width="150"></td>
+      <td width="100">{{ changeInfo.name }}</td>
+      <td>{{ changeInfo.oldValue }}</td>
+      <td>{{ changeInfo.newValue }}</td>
+    </tr>
+  </tbody>
+</table>
