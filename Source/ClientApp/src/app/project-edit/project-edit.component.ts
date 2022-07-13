@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { ProjectInfo } from '../app.model';
-import { ProjectService } from '../app.services';
+import { ProjectService, ImageService } from '../app.services';
 
 @Component({
   selector: 'app-project-edit',
@@ -14,7 +14,8 @@ export class ProjectEditComponent implements OnInit {
 
   constructor(private location: Location,
               private activatedRoute: ActivatedRoute,
-              private projectService: ProjectService) {
+              private projectService: ProjectService,
+              private imageService: ImageService) {
     const projectId = this.activatedRoute.snapshot.paramMap.get('projectId');
 
     if (projectId != null) {
@@ -29,6 +30,19 @@ export class ProjectEditComponent implements OnInit {
                      error => console.error(error));
     } else {
       this.projectInfo = new ProjectInfo();
+    }
+  }
+
+  upload(fileList: FileList): void {
+    if (this.projectId && this.projectInfo) {
+      const projectInfo = this.projectInfo;
+      const imageFile = fileList.item(0);
+
+      if (imageFile) {
+        this.imageService.uploadImage(this.projectId, imageFile)
+          .subscribe(result => projectInfo.image = result.url,
+                     error => console.error(error))
+      }
     }
   }
 
