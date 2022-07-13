@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32611.2
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Telerik.Project.Management", "Telerik.Project.Management.csproj", "{020826F5-712B-4498-9ADA-7D503B6FFBDE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Telerik.Project.Management", "Telerik.Project.Management.csproj", "{020826F5-712B-4498-9ADA-7D503B6FFBDE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Telerik.Project.Management.Tests", "..\Tests\Telerik.Project.Management.Tests.csproj", "{6DE516E6-54AA-4238-9156-606D47A1966A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{020826F5-712B-4498-9ADA-7D503B6FFBDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{020826F5-712B-4498-9ADA-7D503B6FFBDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{020826F5-712B-4498-9ADA-7D503B6FFBDE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DE516E6-54AA-4238-9156-606D47A1966A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DE516E6-54AA-4238-9156-606D47A1966A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DE516E6-54AA-4238-9156-606D47A1966A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DE516E6-54AA-4238-9156-606D47A1966A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
