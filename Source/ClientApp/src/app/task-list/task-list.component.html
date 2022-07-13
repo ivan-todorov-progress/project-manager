@@ -21,9 +21,18 @@
   </thead>
   <tbody>
     <tr *ngFor="let taskInfo of searchInfos">
-      <td width="50">{{ getTypeName(taskInfo.type) }}</td>
-      <td width="150">{{ getStatusName(taskInfo.status) }}</td>
-      <td>{{ taskInfo.title }}</td>
+      <td width="50" class="tooltip-provider">
+        {{ getTypeName(taskInfo.type) }}
+        <app-task-info class="tooltip-content" [taskInfo]="taskInfo"></app-task-info>
+      </td>
+      <td width="150" class="tooltip-provider">
+        {{ getStatusName(taskInfo.status) }}
+        <app-task-info class="tooltip-content" [taskInfo]="taskInfo"></app-task-info>
+      </td>
+      <td class="tooltip-provider">
+        {{ taskInfo.title }}
+        <app-task-info class="tooltip-content" [taskInfo]="taskInfo"></app-task-info>
+      </td>
       <td width="50">
         <a class="nav-link text-dark" routerLink="/task-edit/{{ projectId }}/{{ taskInfo.id }}">Edit</a>
       </td>

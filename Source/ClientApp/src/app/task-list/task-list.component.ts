@@ -7,6 +7,7 @@ import { TaskService } from '../app.services';
 @Component({
   selector: 'app-task-list',
   templateUrl: './task-list.component.html',
+  styleUrls: ['./task-list.component.css']
 })
 export class TaskListComponent implements OnInit, OnDestroy {
   public projectId?: string;

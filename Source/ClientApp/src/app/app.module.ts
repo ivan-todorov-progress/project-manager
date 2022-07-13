@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { ProjectListComponent } from './project-list/project-list.component';
 import { ProjectEditComponent } from './project-edit/project-edit.component';
 import { TaskListComponent } from './task-list/task-list.component';
+import { TaskInfoComponent } from './task-info/task-info.component';
 import { TaskEditComponent } from './task-edit/task-edit.component';
 import { TaskBoardComponent } from './task-board/task-board.component';
 import { TaskHistoryComponent } from './task-history/task-history.component';
@@ -22,6 +23,7 @@ import { TaskHistoryComponent } from './task-history/task-history.component';
     ProjectListComponent,
     ProjectEditComponent,
     TaskListComponent,
+    TaskInfoComponent,
     TaskEditComponent,
     TaskBoardComponent,
     TaskHistoryComponent,

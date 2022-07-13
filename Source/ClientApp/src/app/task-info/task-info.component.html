@@ -1,0 +1,62 @@
+<div class="card" style="width: 550px; padding: 10px" *ngIf="taskInfo">
+  <div class="card-body" style="display: table">
+    <div class="row" style="margin-bottom: 10px">
+      <div class="col">
+        <p class="card-text">
+          <strong>Title:</strong> {{ taskInfo.title ?? '(none)' }}
+        </p>
+      </div>
+    </div>
+    <div class="row" style="margin-bottom: 10px">
+      <div class="col">
+        <p class="card-text">
+          <strong>Type:</strong> {{ getTypeName(taskInfo.type) }}
+        </p>
+      </div>
+      <div class="col">
+        <p class="card-text">
+          <strong>Status:</strong> {{ getStatusName(taskInfo.status) }}
+        </p>
+      </div>
+      <div class="col">
+        <p class="card-text">
+          <strong>Priority:</strong> {{ getPriorityName(taskInfo.priority) }}
+        </p>
+      </div>
+    </div>
+    <div class="row" style="margin-bottom: 10px">
+      <div class="col">
+        <p class="card-text">
+          <strong>Assignee:</strong> {{ taskInfo.assignee ?? '(none)' }}
+        </p>
+      </div>
+      <div class="col">
+        <p class="card-text">
+          <strong>Estimate:</strong> {{ taskInfo.estimate ?? '(none)' }}
+        </p>
+      </div>
+    </div>
+    <div class="row" style="margin-bottom: 10px">
+      <div class="col">
+        <p class="card-text">
+          <strong>Created:</strong> {{ taskInfo.created | date : 'short' }}
+        </p>
+      </div>
+      <div class="col">
+        <p class="card-text">
+          <strong>Modified:</strong> {{ taskInfo.modified | date : 'short' }}
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <p class="card-text">
+          <strong>Description:</strong>
+        </p>
+        <p class="card-text">
+          {{ taskInfo.description ?? '(none)' }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
